@@ -442,22 +442,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton1.setDisabledIcon(aux);
 					boton1.setEnabled(false);
+					boton1.setIcon(aux);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 1;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -471,22 +476,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton2.setDisabledIcon(aux);
 					boton2.setEnabled(false);
+					boton2.setIcon(aux);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 2;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -500,22 +510,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton3.setDisabledIcon(aux);
 					boton3.setEnabled(false);
+					boton3.setIcon(aux);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 3;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -529,22 +544,28 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton4.setDisabledIcon(aux);
+					boton4.setIcon(aux);
 					boton4.setEnabled(false);
+
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 4;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -558,22 +579,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton5.setDisabledIcon(aux);
+					boton5.setIcon(aux);
 					boton5.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 5;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -587,22 +613,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton6.setDisabledIcon(aux);
+					boton6.setIcon(aux);
 					boton6.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 6;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -616,22 +647,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton7.setDisabledIcon(aux);
+					boton7.setIcon(aux);
 					boton7.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 7;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -645,22 +681,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton8.setDisabledIcon(aux);
+					boton8.setIcon(aux);
 					boton8.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 8;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -674,22 +715,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton9.setDisabledIcon(aux);
+					boton9.setIcon(aux);
 					boton9.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 9;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -703,22 +749,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton10.setDisabledIcon(aux);
+					boton10.setIcon(aux);
 					boton10.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 10;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -732,22 +783,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton11.setDisabledIcon(aux);
+					boton11.setIcon(aux);
 					boton11.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 11;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -761,22 +817,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton12.setDisabledIcon(aux);
+					boton12.setIcon(aux);
 					boton12.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 12;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -790,22 +851,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton13.setDisabledIcon(aux);
+					boton13.setIcon(aux);
 					boton13.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 13;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -819,22 +885,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton14.setDisabledIcon(aux);
+					boton14.setIcon(aux);
 					boton14.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 14;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -848,22 +919,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton15.setDisabledIcon(aux);
+					boton15.setIcon(aux);
 					boton15.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 15;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -877,22 +953,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton16.setDisabledIcon(aux);
+					boton16.setIcon(aux);
 					boton16.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 16;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -906,22 +987,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton17.setDisabledIcon(aux);
+					boton17.setIcon(aux);
 					boton17.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 17;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -935,22 +1021,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton18.setDisabledIcon(aux);
+					boton18.setIcon(aux);
 					boton18.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 18;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -964,22 +1055,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton19.setDisabledIcon(aux);
+					boton19.setIcon(aux);
 					boton19.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 19;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -993,22 +1089,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton20.setDisabledIcon(aux);
+					boton20.setIcon(aux);
 					boton20.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 20;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -1022,22 +1123,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton21.setDisabledIcon(aux);
+					boton21.setIcon(aux);
 					boton21.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 21;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -1051,22 +1157,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton22.setDisabledIcon(aux);
+					boton22.setIcon(aux);
 					boton22.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 22;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -1080,22 +1191,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton23.setDisabledIcon(aux);
+					boton23.setIcon(aux);
 					boton23.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 23;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
@@ -1109,22 +1225,27 @@ public class Tablero2 extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				if (modoadivinar.isSelected() == false) {
+					ruta = "src/imagenes/page_1.jpg";
+					ImageIcon imagen = new ImageIcon(ruta);
+					ImageIcon aux = new ImageIcon(imagen.getImage().getScaledInstance(77, 109, Image.SCALE_AREA_AVERAGING));					
+					boton24.setDisabledIcon(aux);
+					boton24.setIcon(aux);
 					boton24.setEnabled(false);
 				}
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 24;
 
-					if (valor == personaje) {
+					if (valor == personaje1) {
 
-						Resultados calificador = new Resultados(0, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(0, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
 					}
-					if (valor != personaje) {
+					if (valor != personaje1) {
 
-						Resultados calificador = new Resultados(1, 2, personaje, personaje1);
+						Resultados calificador = new Resultados(1, 1, personaje, personaje1);
 						calificador.setVisible(true);
 						dispose();
 
