@@ -13,6 +13,14 @@ import java.awt.Image;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class Resultados extends JFrame {
@@ -25,6 +33,9 @@ public class Resultados extends JFrame {
 	private String ruta;
 	Puntajes tablero;
 	Menu principal = new Menu();
+	File Archivo= new File("Puntuacion");
+	ObjectOutputStream escribiendo;
+	ObjectInputStream Leyendo;
 
 	public int personaje1() {
 
@@ -51,39 +62,58 @@ public class Resultados extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		try {
+			Leyendo=new ObjectInputStream(new FileInputStream(Archivo));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} try {
+			puntaje1=(int) Leyendo.readObject();
+			puntaje2=(int) Leyendo.readObject();
+		} catch (IOException e) {
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("AR CHRISTY", Font.PLAIN, 27));
 		lblNewLabel.setBounds(63, 11, 316, 49);
 		if (modo == 0) {
-
 			if (jugador == 1) {
 
 				lblNewLabel.setText("Ganaste jugador# 1");
-				puntaje1 = puntaje1 + 1;
+				puntaje1++;
 
 			}
 
 			if (jugador == 2) {
 
 				lblNewLabel.setText("Ganaste jugador# 2");
-				puntaje2 = puntaje2 + 1;
+				puntaje2++;
 
 			}
 
 		}
 		if (modo == 1) {
-
 			if (jugador == 1) {
 
 				lblNewLabel.setText("Perdiste jugador# 1");
+				puntaje2++;
 			}
 
 			if (jugador == 2) {
 
 				lblNewLabel.setText("Perdiste jugador# 2");
+				puntaje1++;
 			}
 		}
+		
 		contentPane.add(lblNewLabel);
 
 		JLabel cuadro1 = new JLabel("");
@@ -127,7 +157,20 @@ public class Resultados extends JFrame {
 		JButton btnNewButton = new JButton("Men\u00FA");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				try {
+					escribiendo=new ObjectOutputStream(new FileOutputStream(Archivo));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
+				try {
+					escribiendo.writeObject(puntaje1);
+					escribiendo.writeObject(puntaje2);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				principal.setVisible(true);
 				dispose();
 			}
@@ -135,6 +178,7 @@ public class Resultados extends JFrame {
 		btnNewButton.setFont(new Font("AR CHRISTY", Font.PLAIN, 15));
 		btnNewButton.setBounds(176, 167, 90, 23);
 		contentPane.add(btnNewButton);
-
+		
 	}
+
 }

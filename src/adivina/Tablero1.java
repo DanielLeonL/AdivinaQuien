@@ -48,7 +48,7 @@ public class Tablero1 extends JFrame {
 		lblNewLabel.setFont(new Font("AR CHRISTY", Font.PLAIN, 20));
 		lblNewLabel.setBounds(231, 10, 151, 44);
 		contentPane.add(lblNewLabel);
-
+		
 		JButton btnNewButton_8_1 = new JButton("Finalizar turno");
 		btnNewButton_8_1.setFont(new Font("AR CHRISTY", Font.PLAIN, 18));
 		btnNewButton_8_1.setBounds(218, 582, 164, 50);

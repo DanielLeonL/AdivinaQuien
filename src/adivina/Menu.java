@@ -10,18 +10,25 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.awt.event.ActionEvent;
 
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
-	Puntajes tablero = new Puntajes(0, 0);
-
+	private int puntaje1=0, puntaje2=0;
+	File Archivo= new File("Puntuacion");
+	ObjectOutputStream escribiendo;
+	ObjectInputStream Leyendo;
+	
 	Asignador selector = new Asignador();
 
 	public static void main(String[] args) {
-		int puntaje1;
-		int puntaje2;
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -45,10 +52,25 @@ public class Menu extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		try {
+			escribiendo=new ObjectOutputStream(new FileOutputStream(Archivo));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		try {
+			escribiendo.writeObject(puntaje1);
+			escribiendo.writeObject(puntaje2);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		JLabel lblNewLabel = new JLabel("Adivina Qui\u00E9n?");
 		lblNewLabel.setFont(new Font("AR CHRISTY", Font.PLAIN, 35));
-		lblNewLabel.setBounds(137, 11, 221, 83);
+		lblNewLabel.setBounds(98, 10, 281, 83);
 		contentPane.add(lblNewLabel);
 
 		JButton btnNewButton = new JButton("Iniciar");
@@ -72,6 +94,7 @@ public class Menu extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
+				Puntajes tablero = new Puntajes();
 				tablero.setVisible(true);
 				dispose();
 			}

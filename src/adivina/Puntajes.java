@@ -9,6 +9,12 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class Puntajes extends JFrame {
@@ -16,12 +22,12 @@ public class Puntajes extends JFrame {
 	private JPanel contentPane;
 	private int puntaje1;
 	private int puntaje2;
+	ObjectInputStream Leyendo;
+	File Archivo= new File("Puntuacion");
 
-	public Puntajes(int puntaje1, int puntaje2) {
+	public Puntajes() {
 
-		this.puntaje1 = puntaje1;
-		this.puntaje2 = puntaje2;
-
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 277);
 		contentPane = new JPanel();
@@ -30,6 +36,24 @@ public class Puntajes extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		try {
+			Leyendo=new ObjectInputStream(new FileInputStream(Archivo));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} try {
+			puntaje1=(int) Leyendo.readObject();
+			puntaje2=(int) Leyendo.readObject();
+		} catch (IOException e) {
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		JLabel lblNewLabel = new JLabel("Jugador#1");
 		lblNewLabel.setFont(new Font("AR CHRISTY", Font.PLAIN, 24));
 		lblNewLabel.setBounds(10, 78, 183, 53);
@@ -75,6 +99,7 @@ public class Puntajes extends JFrame {
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+			
 				puntos1.setText("" + puntaje1);
 				puntos2.setText("" + puntaje2);
 			}
