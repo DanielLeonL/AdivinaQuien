@@ -1,3 +1,9 @@
+/*
+ * NOMBRE PROGRAMA: ADIVINA_QUIEN
+ * AUTORES:JUAN DAVID MARTINEZ MONROY
+ *		   DANIEL ESTEBAN LEON LEON
+ * FECHA: FEBRERO 24-2021
+ */
 package adivina;
 
 import java.awt.EventQueue;
@@ -26,29 +32,36 @@ import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
 public class Menu extends JFrame implements Serializable {
-
+	// Declaro las variables
 	private JPanel contentPane;
-	File Archivo = new File("Puntuacion");
 	ObjectOutputStream escribiendo;
-	ObjectOutputStream escribiendo1;
 	ObjectInputStream Leyendo;
+	//Se crean los archivos que contendran la información
 	File Archivo1 = new File("datos");
+	File Archivo = new File("Puntuacion");
 
+	//Se crean el objeto que iniciara el juego
 	Asignador selector = new Asignador();
 
 	public Menu() {
+
+		//Se verifica que el archivo exista para no volver a crearlo
+		  if (Archivo.exists()) {
+			  
+		  }else {
+			  //Crea el archivo en caso de no existir
+
 		try {
-			escribiendo1 = new ObjectOutputStream(new FileOutputStream(Archivo));
+			escribiendo = new ObjectOutputStream(new FileOutputStream(Archivo));
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
+		  }
+		  
+		  //Se crea el método que guardara la partida cuando se cierre el juego
 		addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent e) {
-
-				
-				
+			public void windowClosing(WindowEvent e) {	
 				try {
 					escribiendo = new ObjectOutputStream(new FileOutputStream(Archivo1));
 				} catch (IOException e1) {
@@ -57,7 +70,6 @@ public class Menu extends JFrame implements Serializable {
 				}
 
 				try {
-
 					int contador = 5;
 					escribiendo.writeObject(contador);
 
@@ -70,6 +82,7 @@ public class Menu extends JFrame implements Serializable {
 			}
 		});
 
+		//Se genera los objetos que se encontraran dentro del jframe
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 511, 232);
 		contentPane = new JPanel();
@@ -95,9 +108,11 @@ public class Menu extends JFrame implements Serializable {
 		btnNewButton_1.setBounds(190, 139, 110, 23);
 		contentPane.add(btnNewButton_1);
 
+		
+		//Se crean las acciones que se ejecutarán al accionar los botones
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+				//Inicia el juego
 				selector.setVisible(true);
 				dispose();
 			}
@@ -105,7 +120,7 @@ public class Menu extends JFrame implements Serializable {
 
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+				//Genera el tablero donde se verán los puntajes
 				Puntajes tablero = new Puntajes();
 				tablero.setVisible(true);
 				dispose();

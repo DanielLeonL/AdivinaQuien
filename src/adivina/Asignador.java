@@ -1,3 +1,9 @@
+/*
+ * NOMBRE PROGRAMA: ADIVINA_QUIEN
+ * AUTORES:JUAN DAVID MARTINEZ MONROY
+ *		   DANIEL ESTEBAN LEON LEON
+ * FECHA: FEBRERO 24-2021
+ */
 package adivina;
 
 import javax.swing.JFrame;
@@ -24,7 +30,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class Asignador extends JFrame implements Serializable {
-
+	// Declaro las variables
 	private JPanel contentPane;
 	private double valor;
 	private int valorf;
@@ -35,8 +41,11 @@ public class Asignador extends JFrame implements Serializable {
 	private boolean[] arreglo2 = new boolean[24];
 	Intermediario intermedio;
 	ObjectOutputStream escribiendo;
+	//Se generan los archivos de los que se leerá la información
 	File Archivo1 = new File("datos");
 
+	
+	//Se genera el constructor donde se leerán las variables externas
 	public void entradas(int contador, int personaje1, int personaje2) {
 
 		this.contador = contador;
@@ -44,22 +53,23 @@ public class Asignador extends JFrame implements Serializable {
 		this.personaje2 = personaje2;
 	}
 
+	//Se genera el constructor donde se leerán las variables externas además de crear el jframe donde empezara el juego
 	public Asignador(int personajes1, int personajes2, int contador1) {
 
 		this.contador = contador1;
 		this.personaje1 = personajes1;
 		this.personaje2 = personajes2;
-
+		 //Se crea el método que guardara la partida cuando se cierre el juego
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
-
+				//Crea el archivo
 				try {
 					escribiendo = new ObjectOutputStream(new FileOutputStream(Archivo1));
 				} catch (IOException e1) {
 
 					e1.printStackTrace();
 				}
-
+				//Escribe en el archivo las variables que se deseen guardar
 				try {
 
 					int contador1 = 7;
@@ -76,7 +86,7 @@ public class Asignador extends JFrame implements Serializable {
 				dispose();
 			}
 		});
-
+		//Modifica el tablero de personajes para que sean seleccionables
 		for (int i = 0; i < 24; i++) {
 
 			arreglo1[i] = true;
@@ -84,6 +94,7 @@ public class Asignador extends JFrame implements Serializable {
 
 		}
 
+		//Se genera los objetos que se encontraran dentro del jframe
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 326, 276);
 		contentPane = new JPanel();
@@ -123,7 +134,8 @@ public class Asignador extends JFrame implements Serializable {
 		lblNewLabel_1.setFont(new Font("AR CHRISTY", Font.PLAIN, 16));
 		lblNewLabel_1.setBounds(10, 11, 183, 23);
 		contentPane.add(lblNewLabel_1);
-
+		
+		//Muestra el personaje aleatorio
 		JLabel lblNewLabel_2 = new JLabel("");
 		if (contador == 1 && personaje1 != 0) {
 
@@ -138,7 +150,7 @@ public class Asignador extends JFrame implements Serializable {
 
 			textPane.setText(texto);
 		}
-
+		//Muestra el personaje aleatorio
 		if (contador == 2 && personaje2 != 0) {
 
 			ruta = "src/imagenes/cara" + personaje2 + ".jpg";
@@ -157,6 +169,7 @@ public class Asignador extends JFrame implements Serializable {
 		lblNewLabel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
 		contentPane.add(lblNewLabel_2);
 
+		//Selecciona el personaje mostrado y procede con el siguiente paso
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -170,13 +183,14 @@ public class Asignador extends JFrame implements Serializable {
 
 						lblNewLabel_1.setText("Turno del jugador # 2");
 					} else {
-
+						//Genera un mensaje en caso de no generar un personaje
 						JOptionPane.showMessageDialog(null, "Primero obtén un personaje", "Información",
 								JOptionPane.INFORMATION_MESSAGE);
 					}
 
 				}
-
+				
+				//Crea el tablero principal de juego
 				if (contador == 2) {
 
 					if (personaje2 != 0) {
@@ -203,6 +217,7 @@ public class Asignador extends JFrame implements Serializable {
 			}
 		});
 
+		//El botón al ser accionado genera un nuevo personaje
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -245,6 +260,7 @@ public class Asignador extends JFrame implements Serializable {
 			public void windowClosing(WindowEvent e) {
 
 				try {
+					//Crea el archivo
 					escribiendo = new ObjectOutputStream(new FileOutputStream(Archivo1));
 				} catch (IOException e1) {
 
@@ -252,7 +268,7 @@ public class Asignador extends JFrame implements Serializable {
 				}
 
 				try {
-
+					//Escribe en el archivo las variables que se deseen guardar
 					int contador1 = 7;
 					escribiendo.writeObject(contador1);
 					escribiendo.writeObject(contador);
@@ -267,7 +283,7 @@ public class Asignador extends JFrame implements Serializable {
 				dispose();
 			}
 		});
-
+		//Modifica el tablero de personajes para que sean seleccionables
 		for (int i = 0; i < 24; i++) {
 
 			arreglo1[i] = true;
@@ -275,6 +291,7 @@ public class Asignador extends JFrame implements Serializable {
 
 		}
 
+		//Se genera los objetos que se encontraran dentro del jframe
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 326, 276);
 		contentPane = new JPanel();
@@ -314,10 +331,10 @@ public class Asignador extends JFrame implements Serializable {
 		textPane.setBackground(new Color(255, 140, 0));
 		textPane.setBounds(10, 45, 163, 181);
 		contentPane.add(textPane);
-
+		//Selecciona el personaje mostrado y procede con el siguiente paso
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+				
 				textPane.setText("");
 
 				lblNewLabel_2.setIcon(null);
@@ -328,7 +345,7 @@ public class Asignador extends JFrame implements Serializable {
 
 						lblNewLabel_1.setText("Turno del jugador # 2");
 					} else {
-
+						//Genera un mensaje en caso de no generar un personaje
 						JOptionPane.showMessageDialog(null, "Primero obtén un personaje", "Información",
 								JOptionPane.INFORMATION_MESSAGE);
 					}
@@ -336,7 +353,7 @@ public class Asignador extends JFrame implements Serializable {
 				}
 
 				if (contador == 2) {
-
+					//Crea el tablero principal de juego
 					if (personaje2 != 0) {
 
 						Tablero1 jugador1 = new Tablero1(personaje1, personaje2, arreglo1);
@@ -348,7 +365,7 @@ public class Asignador extends JFrame implements Serializable {
 						dispose();
 
 					} else {
-
+						//Genera un mensaje en caso de no generar un personaje
 						JOptionPane.showMessageDialog(null, "Primero obtén un personaje", "Información",
 								JOptionPane.INFORMATION_MESSAGE);
 					}
@@ -360,7 +377,8 @@ public class Asignador extends JFrame implements Serializable {
 
 			}
 		});
-
+		
+		//El botón al ser accionado genera un nuevo personaje
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 

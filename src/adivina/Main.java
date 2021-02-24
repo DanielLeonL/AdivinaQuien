@@ -1,3 +1,9 @@
+/*
+ * NOMBRE PROGRAMA: ADIVINA_QUIEN
+ * AUTORES:JUAN DAVID MARTINEZ MONROY
+ *		   DANIEL ESTEBAN LEON LEON
+ * FECHA: FEBRERO 24-2021
+ */
 package adivina;
 
 import java.io.File;
@@ -10,6 +16,7 @@ import javax.swing.JOptionPane;
 
 public class Main {
 
+	//Inicia el proceso
 	public static void main(String[] args) {
 
 		ObjectInputStream Leyendo = null;
@@ -18,7 +25,7 @@ public class Main {
 		boolean[] arreglo2 = new boolean[24];
 
 		try {
-
+			//Revisa si hay un guardado generado por cerrarse
 			Leyendo = new ObjectInputStream(new FileInputStream(Archivo));
 		} catch (FileNotFoundException e) {
 
@@ -33,9 +40,9 @@ public class Main {
 			e1.printStackTrace();
 		}
 		try {
-
+			//Lee en el archivo las variables que se necesitan para recuperar la partida
 			int contador = (int) Leyendo.readObject();
-
+			//Lee en el archivo en caso de abandonar en jugador 1
 			if (contador == 1) {
 
 				int personaje = (int) Leyendo.readObject();
@@ -54,7 +61,8 @@ public class Main {
 			}
 
 			if (contador == 2) {
-
+				
+				//Lee en el archivo en caso de abandonar en jugador 2
 				int personaje = (int) Leyendo.readObject();
 				int personaje1 = (int) Leyendo.readObject();
 				arreglo1 = (boolean[]) Leyendo.readObject();
@@ -71,7 +79,7 @@ public class Main {
 			}
 			
 			if (contador == 3) {
-
+				//Lee en el archivo en caso de abandonar en intermedio
 				int personaje = (int) Leyendo.readObject();
 				int personaje1 = (int) Leyendo.readObject();
 				arreglo1 = (boolean[]) Leyendo.readObject();
@@ -90,7 +98,7 @@ public class Main {
 			}
 
 			if (contador == 4) {
-
+				//Lee en el archivo en caso de abandonar en resultados
 				int modo = (int) Leyendo.readObject();
 				int jugador = (int) Leyendo.readObject();
 				int jugador1 = (int) Leyendo.readObject();
@@ -99,6 +107,7 @@ public class Main {
 				resultados.setVisible(true);
 
 			}
+			//Genera la partida desde el menú
 
 			if (contador == 5 || contador == 0) {
 
@@ -106,7 +115,7 @@ public class Main {
 				frame.setVisible(true);
 
 			}
-
+			//Genera la partida desde los puntajes
 			if (contador == 6) {
 
 				Puntajes frame = new Puntajes();
@@ -114,7 +123,7 @@ public class Main {
 
 			}
 			if (contador == 7) {
-
+				//Genera la partida desde la asignación de personajes
 				int contador1 = (int) Leyendo.readObject();
 				int personaje1 = (int) Leyendo.readObject();
 				int personaje2 = (int) Leyendo.readObject();

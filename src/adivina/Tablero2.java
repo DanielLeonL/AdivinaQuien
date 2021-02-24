@@ -1,3 +1,9 @@
+/*
+ * NOMBRE PROGRAMA: ADIVINA_QUIEN
+ * AUTORES:JUAN DAVID MARTINEZ MONROY
+ *		   DANIEL ESTEBAN LEON LEON
+ * FECHA: FEBRERO 24-2021
+ */
 package adivina;
 
 import java.awt.Color;
@@ -23,7 +29,7 @@ import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
 
 public class Tablero2 extends JFrame implements Serializable {
-
+	// Declaro las variables
 	private JPanel contentPane;
 	private String ruta;
 	private int personaje;
@@ -32,9 +38,11 @@ public class Tablero2 extends JFrame implements Serializable {
 	private boolean[ ] arreglo = new boolean[24];
 	ImageIcon imagen;
 	ImageIcon aux;
-	File Archivo1= new File("datos");
 	ObjectOutputStream escribiendo;
-	
+	//Se crean los archivos que contendran la información
+	File Archivo1= new File("datos");
+
+	//Se crean los getters
 	public boolean[] getarreglo() {
 		return arreglo;
 	}
@@ -46,18 +54,18 @@ public class Tablero2 extends JFrame implements Serializable {
 	public int getPersonaje1() {
 		return personaje1;
 	}
-
+	//Crea el objeto Intermediario
 	public void setintermedio(Intermediario intermedio) {
 
 		this.intermedio = intermedio;
 	}
-
+	//Crea el constructor que construye el tablero en caso de cerrar
 	public Tablero2(int personaje, int personaje1, boolean[] arreglo1) {
 
 		this.personaje = personaje;
 		this.personaje1 = personaje1;
 		this.arreglo = arreglo1;
-		
+		 //Se crea el método que guardara la partida cuando se cierre el juego
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				
@@ -88,7 +96,7 @@ public class Tablero2 extends JFrame implements Serializable {
 				dispose();
 			}
 		});
-
+		//Se genera los objetos que se encontraran dentro del jframe
 		setBounds(50, 50, 600, 725);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 255, 127));
@@ -105,7 +113,8 @@ public class Tablero2 extends JFrame implements Serializable {
 		btnNewButton_8_1.setFont(new Font("AR CHRISTY", Font.PLAIN, 18));
 		btnNewButton_8_1.setBounds(218, 582, 164, 50);
 		contentPane.add(btnNewButton_8_1);
-
+		
+		//Se genera el grupo de 24 botones que representan los 24 personajes
 		JButton boton1 = new JButton();
 		boton1.setBounds(44, 64, 77, 109);
 		if (arreglo[0] == true) {
