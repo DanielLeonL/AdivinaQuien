@@ -1,3 +1,9 @@
+/*
+ * NOMBRE PROGRAMA: ADIVINA_QUIEN
+ * AUTORES:JUAN DAVID MARTINEZ MONROY
+ *		   DANIEL ESTEBAN LEON LEON
+ * FECHA: FEBRERO 24-2021
+ */
 package adivina;
 
 import java.awt.Font;
@@ -23,7 +29,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class Tablero1 extends JFrame implements Serializable {
-
+	// Declaro las variables
 	private JPanel contentPane;
 	private String ruta;
 	private int personaje;
@@ -32,9 +38,12 @@ public class Tablero1 extends JFrame implements Serializable {
 	private boolean[] arreglo = new boolean[24];
 	ImageIcon imagen;
 	ImageIcon aux;
-	File Archivo1 = new File("datos");
 	ObjectOutputStream escribiendo;
 	
+	//Se crean los archivos que contendran la información
+	File Archivo1 = new File("datos");
+	
+	//Se crean los getters
 	public boolean[] getarreglo() {
 		return arreglo;
 	}
@@ -46,18 +55,19 @@ public class Tablero1 extends JFrame implements Serializable {
 	public int getPersonaje1() {
 		return personaje1;
 	}
-
+	
+	//Crea el objeto Intermediario
 	public void setintermedio(Intermediario intermedio) {
 
 		this.intermedio = intermedio;
 	}
-
+	//Crea el constructor que construye el tablero en caso de cerrar
 	public Tablero1(int personaje, int personaje1, boolean[] arreglo1) {
 
 		this.personaje = personaje;
 		this.personaje1 = personaje1;
 		this.arreglo = arreglo1;
-
+		 //Se crea el método que guardara la partida cuando se cierre el juego
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 
@@ -87,7 +97,7 @@ public class Tablero1 extends JFrame implements Serializable {
 				dispose();
 			}
 		});
-
+		//Se genera los objetos que se encontraran dentro del jframe
 		setBounds(50, 50, 600, 725);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 206, 209));
@@ -104,9 +114,13 @@ public class Tablero1 extends JFrame implements Serializable {
 		btnNewButton_8_1.setFont(new Font("AR CHRISTY", Font.PLAIN, 18));
 		btnNewButton_8_1.setBounds(218, 582, 164, 50);
 		contentPane.add(btnNewButton_8_1);
-
+		
+		//Se genera el grupo de 24 botones que representan los 24 personajes
 		JButton boton1 = new JButton();
 		boton1.setBounds(44, 64, 77, 109);
+		
+		//En caso de cargar desde el tablero, entonces se determina si ya han sido seleccionadas las tarjetas o no
+		// Si es "True", se carga la imagén del personaje, de lo contrario significa que el personaje había sido descartado
 		if (arreglo[0] == true) {
 			ruta = "src/imagenes/cara1.jpg";
 			imagen = new ImageIcon(ruta);
@@ -561,6 +575,7 @@ public class Tablero1 extends JFrame implements Serializable {
 		}
 		contentPane.add(boton24);
 
+		// El botón número 25 no tiene acciones ya que solo almacena el personaje del jugador
 		JButton boton25 = new JButton();
 		boton25.setBounds(44, 566, 77, 109);
 		ruta = "src/imagenes/cara" + personaje + ".jpg";
@@ -569,22 +584,26 @@ public class Tablero1 extends JFrame implements Serializable {
 		boton25.setIcon(aux);
 		contentPane.add(boton25);
 
+		// Etiquetas 
 		JLabel lblNewLabel_1 = new JLabel("Personaje");
 		lblNewLabel_1.setFont(new Font("AR CHRISTY", Font.PLAIN, 16));
 		lblNewLabel_1.setBounds(44, 541, 77, 14);
 		contentPane.add(lblNewLabel_1);
 
+		// Este Jradiobutton habilita o deshabilita el modo adivinar 
 		JRadioButton modoadivinar = new JRadioButton("Modo adivinar");
 		modoadivinar.setBackground(new Color(0, 206, 209));
 		modoadivinar.setFont(new Font("AR CHRISTY", Font.PLAIN, 14));
 		modoadivinar.setBounds(447, 599, 109, 23);
 		contentPane.add(modoadivinar);
 
+		// Reiniciar vuelve todos los botones desde el inicio 
 		JButton reiniciar = new JButton("Reiniciar");
 		reiniciar.setFont(new Font("AR CHRISTY", Font.PLAIN, 15));
 		reiniciar.setBounds(245, 652, 115, 23);
 		contentPane.add(reiniciar);
 
+		// Eventos de reiniciar
 		reiniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -741,6 +760,7 @@ public class Tablero1 extends JFrame implements Serializable {
 			}
 		});
 
+		// El botón siguente da paso a la clase intermediario
 		btnNewButton_8_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -751,6 +771,7 @@ public class Tablero1 extends JFrame implements Serializable {
 					dispose();
 				}
 
+				// En caso de que este el modo adivinar activado el juego lanzara un mensaje ya que no se puede seguir sin adivinar o no querer hacerlo
 				if (modoadivinar.isSelected() == true) {
 
 					JOptionPane.showMessageDialog(null,
@@ -762,9 +783,11 @@ public class Tablero1 extends JFrame implements Serializable {
 			}
 		});
 
+		// Todos los botones de personaje del 1 hasta el 24 tienen estos eventos
 		boton1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
+				// Si el modo adiviniar esta deshabilitado simplemente se cambia la imagén del boton y se deshabilita, ya que se descarto el personaje
 				if (modoadivinar.isSelected() == false) {
 
 					arreglo[0]= false;
@@ -776,6 +799,8 @@ public class Tablero1 extends JFrame implements Serializable {
 					boton1.setEnabled(false);
 					boton1.setIcon(aux);
 				}
+				
+				// Si el modo advinar esta habilitado se evalúan los personajes y se llama a la clase "Resultados", para que decida quién gano
 				if (modoadivinar.isSelected() == true) {
 
 					int valor = 1;

@@ -1,3 +1,9 @@
+/*
+ * NOMBRE PROGRAMA: ADIVINA_QUIEN
+ * AUTORES:JUAN DAVID MARTINEZ MONROY
+ *		   DANIEL ESTEBAN LEON LEON
+ * FECHA: FEBRERO 24-2021
+ */
 package adivina;
 
 import javax.swing.JFrame;
@@ -19,14 +25,16 @@ import java.io.Serializable;
 import java.awt.event.ActionEvent;
 
 public class Intermediario extends JFrame implements Serializable {
-
+	// Declaro las variables
 	private JPanel contentPane;
 	private int turno;
 	private Tablero1 jugador1;
 	private Tablero2 jugador2;
-	File Archivo1 = new File("datos");
 	ObjectOutputStream escribiendo;
+	//Se crean los archivos que contendran la información	
+	File Archivo1 = new File("datos");
 
+	//Se crean los getters que devuelven los tableros
 	public Tablero1 gettablero1() {
 
 		return jugador1;
@@ -36,19 +44,22 @@ public class Intermediario extends JFrame implements Serializable {
 
 		return jugador2;
 	}
-
+	//Se crea el setter que devuelve el turno 
 	public void setturno(int siguente) {
 
 		this.turno = siguente;
 	}
+	//Se genera el constructor donde se leerán las variables externas además de crear el jframe donde se muestran los resultados
 
 	public Intermediario(Tablero1 jugador11, Tablero2 jugador22) {
 
 		this.jugador1 = jugador11;
 		this.jugador2 = jugador22;
+		 //Se crea el método que guardara la partida cuando se cierre el juego
 
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
+				//Crea el archivo
 
 				try {
 					escribiendo = new ObjectOutputStream(new FileOutputStream(Archivo1));
@@ -58,6 +69,7 @@ public class Intermediario extends JFrame implements Serializable {
 				}
 
 				try {
+					//Escribe en el archivo las variables que se deseen guardar				
 
 					int contador = 3;
 					escribiendo.writeObject(contador);
@@ -77,6 +89,7 @@ public class Intermediario extends JFrame implements Serializable {
 				dispose();
 			}
 		});
+		//Se genera los objetos que se encontraran dentro del jframe
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -90,7 +103,7 @@ public class Intermediario extends JFrame implements Serializable {
 		btnNewButton.setFont(new Font("AR CHRISTY", Font.PLAIN, 18));
 		btnNewButton.setBounds(137, 158, 160, 58);
 		contentPane.add(btnNewButton);
-
+			//Muestra a quien le corresponde el siguiente turno
 		JLabel lblNewLabel = new JLabel("Turno finalizado, siguente jugador");
 		if (turno == 1) {
 
@@ -107,6 +120,7 @@ public class Intermediario extends JFrame implements Serializable {
 		lblNewLabel.setBounds(48, 45, 346, 43);
 		contentPane.add(lblNewLabel);
 
+		//Crea la acción para avanzar al siguiente turno
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (turno == 1) {

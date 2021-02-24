@@ -1,3 +1,9 @@
+/*
+ * NOMBRE PROGRAMA: ADIVINA_QUIEN
+ * AUTORES:JUAN DAVID MARTINEZ MONROY
+ *		   DANIEL ESTEBAN LEON LEON
+ * FECHA: FEBRERO 24-2021
+ */
 package adivina;
 
 import javax.swing.JFrame;
@@ -22,20 +28,22 @@ import java.io.Serializable;
 import java.awt.event.ActionEvent;
 
 public class Puntajes extends JFrame implements Serializable {
-
+	// Declaro las variables
 	private JPanel contentPane;
 	private int puntaje1;
 	private int puntaje2;
 	ObjectInputStream Leyendo;
 	ObjectOutputStream escribiendo;
+	//Se crean los archivos que contendran la información	
 	File Archivo1 = new File("datos");
 	File Archivo = new File("Puntuacion");
 
 	public Puntajes() {
-		
+		 //Se crea el método que guardara la partida cuando se cierre el juego
+
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
-
+				//Crea el archivo
 				try {
 					escribiendo = new ObjectOutputStream(new FileOutputStream(Archivo1));
 				} catch (IOException e1) {
@@ -44,6 +52,7 @@ public class Puntajes extends JFrame implements Serializable {
 				}
 
 				try {
+					//Escribe en el archivo las variables que se deseen guardar				
 
 					int contador = 6;
 					escribiendo.writeObject(contador);
@@ -56,7 +65,7 @@ public class Puntajes extends JFrame implements Serializable {
 				dispose();
 			}
 		});
-
+		//Se genera el jframe
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 277);
 		contentPane = new JPanel();
@@ -83,7 +92,7 @@ public class Puntajes extends JFrame implements Serializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		//Se genera los objetos que se encontraran dentro del jframe
 		JLabel lblNewLabel = new JLabel("Jugador#1");
 		lblNewLabel.setFont(new Font("AR CHRISTY", Font.PLAIN, 24));
 		lblNewLabel.setBounds(10, 78, 183, 53);
@@ -106,6 +115,7 @@ public class Puntajes extends JFrame implements Serializable {
 		lblPartidasGanadas.setBounds(202, 14, 210, 53);
 		contentPane.add(lblPartidasGanadas);
 
+		//Muestra ambos puntajes
 		JLabel puntos1 = new JLabel("" + this.puntaje1);
 		puntos1.setFont(new Font("AR CHRISTY", Font.PLAIN, 24));
 		puntos1.setBounds(224, 78, 183, 53);
@@ -128,7 +138,7 @@ public class Puntajes extends JFrame implements Serializable {
 
 		btnActualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				//Reinicia los puntajes
 				puntaje1 = 0;
 				puntaje2 = 0;
 				
@@ -136,6 +146,7 @@ public class Puntajes extends JFrame implements Serializable {
 				puntos2.setText("" + puntaje2);
 				
 				try {
+					//Crea el archivo
 					escribiendo=new ObjectOutputStream(new FileOutputStream(Archivo));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -143,6 +154,7 @@ public class Puntajes extends JFrame implements Serializable {
 				}
 
 				try {
+					//Escribe en el archivo las puntuaciones reiniciadas
 					escribiendo.writeObject(puntaje1);
 					escribiendo.writeObject(puntaje2);
 				} catch (IOException e) {
@@ -151,6 +163,8 @@ public class Puntajes extends JFrame implements Serializable {
 				}
 			}
 		});
+		
+		//Devuelve a la pantalla principal
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
