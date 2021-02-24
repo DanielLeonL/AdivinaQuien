@@ -30,16 +30,25 @@ public class Menu extends JFrame implements Serializable {
 	private JPanel contentPane;
 	File Archivo = new File("Puntuacion");
 	ObjectOutputStream escribiendo;
+	ObjectOutputStream escribiendo1;
 	ObjectInputStream Leyendo;
 	File Archivo1 = new File("datos");
 
 	Asignador selector = new Asignador();
 
 	public Menu() {
+		try {
+			escribiendo1 = new ObjectOutputStream(new FileOutputStream(Archivo));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 
+				
+				
 				try {
 					escribiendo = new ObjectOutputStream(new FileOutputStream(Archivo1));
 				} catch (IOException e1) {
