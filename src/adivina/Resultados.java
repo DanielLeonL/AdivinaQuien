@@ -13,6 +13,8 @@ import java.awt.Image;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,10 +22,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.awt.event.ActionEvent;
 
-public class Resultados extends JFrame {
+public class Resultados extends JFrame implements Serializable{
 
 	private JPanel contentPane;
 	private int modo, puntaje1, puntaje2;
@@ -33,9 +35,11 @@ public class Resultados extends JFrame {
 	private String ruta;
 	Puntajes tablero;
 	Menu principal = new Menu();
-	File Archivo= new File("Puntuacion");
+	File Archivo = new File("Puntuacion");
 	ObjectOutputStream escribiendo;
 	ObjectInputStream Leyendo;
+	File Archivo1 = new File("datos");
+	ObjectOutputStream escribiendo1;
 
 	public int personaje1() {
 
@@ -54,6 +58,34 @@ public class Resultados extends JFrame {
 		this.personaje1 = personaje1;
 		this.personaje2 = personaje2;
 
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+
+				try {
+					escribiendo1 = new ObjectOutputStream(new FileOutputStream(Archivo1));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+				try {
+					
+					int contador = 4;
+					escribiendo1.writeObject(contador);
+					escribiendo1.writeObject(modo);
+					escribiendo1.writeObject(jugador);
+					escribiendo1.writeObject(personaje1);
+					escribiendo1.writeObject(personaje2);
+
+				} catch (IOException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+
+				dispose();
+			}
+		});
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -63,18 +95,19 @@ public class Resultados extends JFrame {
 		contentPane.setLayout(null);
 
 		try {
-			Leyendo=new ObjectInputStream(new FileInputStream(Archivo));
+			Leyendo = new ObjectInputStream(new FileInputStream(Archivo));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} try {
-			puntaje1=(int) Leyendo.readObject();
-			puntaje2=(int) Leyendo.readObject();
+		}
+		try {
+			puntaje1 = (int) Leyendo.readObject();
+			puntaje2 = (int) Leyendo.readObject();
 		} catch (IOException e) {
-			
+
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -101,6 +134,7 @@ public class Resultados extends JFrame {
 
 		}
 		if (modo == 1) {
+
 			if (jugador == 1) {
 
 				lblNewLabel.setText("Perdiste jugador# 1");
@@ -113,7 +147,7 @@ public class Resultados extends JFrame {
 				puntaje1++;
 			}
 		}
-		
+
 		contentPane.add(lblNewLabel);
 
 		JLabel cuadro1 = new JLabel("");
@@ -158,7 +192,7 @@ public class Resultados extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					escribiendo=new ObjectOutputStream(new FileOutputStream(Archivo));
+					escribiendo = new ObjectOutputStream(new FileOutputStream(Archivo));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -178,7 +212,7 @@ public class Resultados extends JFrame {
 		btnNewButton.setFont(new Font("AR CHRISTY", Font.PLAIN, 15));
 		btnNewButton.setBounds(176, 167, 90, 23);
 		contentPane.add(btnNewButton);
-		
+
 	}
 
 }

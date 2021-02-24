@@ -6,43 +6,60 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
-public class Menu extends JFrame {
+public class Menu extends JFrame implements Serializable {
 
 	private JPanel contentPane;
-	private int puntaje1=0, puntaje2=0;
-	File Archivo= new File("Puntuacion");
+	File Archivo = new File("Puntuacion");
 	ObjectOutputStream escribiendo;
 	ObjectInputStream Leyendo;
-	
+	File Archivo1 = new File("datos");
+
 	Asignador selector = new Asignador();
 
-	public static void main(String[] args) {
-		
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+	public Menu() {
+
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+
 				try {
-					Menu frame = new Menu();
-					frame.setVisible(true);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
+					escribiendo = new ObjectOutputStream(new FileOutputStream(Archivo1));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
+
+				try {
+
+					int contador = 5;
+					escribiendo.writeObject(contador);
+
+				} catch (IOException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+
+				dispose();
 			}
 		});
-	}
-
-	public Menu() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 511, 232);
@@ -52,25 +69,11 @@ public class Menu extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		try {
-			escribiendo=new ObjectOutputStream(new FileOutputStream(Archivo));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		try {
-			escribiendo.writeObject(puntaje1);
-			escribiendo.writeObject(puntaje2);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 		JLabel lblNewLabel = new JLabel("Adivina Qui\u00E9n?");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("AR CHRISTY", Font.PLAIN, 35));
-		lblNewLabel.setBounds(98, 10, 281, 83);
+		lblNewLabel.setBounds(110, 11, 281, 83);
 		contentPane.add(lblNewLabel);
 
 		JButton btnNewButton = new JButton("Iniciar");
